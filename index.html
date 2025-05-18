@@ -14,6 +14,7 @@
 
   <!-- Your Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -61,60 +62,34 @@
   </section>
 
   <!-- Product Section -->
-  <section class="product-section container">
-    <h2 class="text-center mb-4">NEW ARRIVALS</h2>
-    <div class="row">
-      <div class="col-12 col-sm-6 col-lg-3 mb-4">
-        <div class="product-card h-100">
-          <img src="images/nail-polish.webp" alt="product img">
-          <div class="card-content">
-            <h3>Nail Polish</h3>
-            <p>Rs.2599</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
-      </div>
+  <section class="product-section container my-4">
+    <h2 class="text-center mb-4">SHOP ALL PRODUCTS</h2>
+    <div class="row" id="productRow">
+<script>
+  const row = document.getElementById("productRow");
 
-      <div class="col-12 col-sm-6 col-lg-3 mb-4">
-        <div class="product-card h-100">
-          <img src="images/foundation.webp" alt="product img">
-          <div class="card-content">
-            <h3>BB Cream</h3>
-            <p>Rs.2599</p>
-          </div>
-          <button>Add to cart</button>
+    newArrivals.map(product => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-3 mb-4";
+    col.innerHTML = `
+      <div class="product-card h-100">
+        <img src="${product.image}" alt="${product.alt}" class="img-fluid">
+        <div class="card-content">
+          <h3>${product.title}</h3>
+          <p>${product.price}</p>
         </div>
+        <button>Add to cart</button>
       </div>
+    `;
+    row.appendChild(col);
+  });
+</script>
 
-      <div class="col-12 col-sm-6 col-lg-3 mb-4">
-        <div class="product-card h-100">
-          <img src="images/Mascara.webp" alt="product img">
-          <div class="card-content">
-            <h3>Drama Lash Limited Edition</h3>
-            <p>Rs.1299</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-lg-3 mb-4">
-        <div class="product-card h-100">
-          <img src="images/foundation 2.webp" alt="product img">
-          <div class="card-content">
-            <h3>ULTRA WEAR FOUNDATION</h3>
-            <p>Rs.3699</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Scripts -->
+  <!-- Bootstrap JS (optional for extra functionality like collapse) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    feather.replace();
-  </script>
 </body>
 
 </html>

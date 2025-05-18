@@ -13,6 +13,7 @@
 
   <!-- Your Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/makeup.js"></script>
 </head>
 
 <body>
@@ -52,48 +53,34 @@
     </div>
   </nav>
 
-    <section class="hero">
-      <img src="images/makeup.p1.webp" alt=" cosmetic banner " class="hero-img">
-    </section>
-    <section class="product-section">
-      <h2>MAKEUP</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="images/shop-p1.webp" alt="Lipstick">
-          <div class="card-content">
-            <h3>Luxury Lipstick</h3>
-            <p>Rs. 1,499</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
+<section class="product-section container my-4">
+    <h2 class="text-center mb-4">SHOP ALL PRODUCTS</h2>
+    <div class="row" id="productRow">
+<script>
+  const row = document.getElementById("productRow");
 
-        <div class="product-card">
-          <img src="images/makeup.1.webp" alt="Blush">
-          <div class="card-content">
-            <h3>Peach Blush</h3>
-            <p>Rs.1499</p>
-          </div>
-          <button>Add to cart</button>
+    makeupProducts.map(product => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-3 mb-4";
+    col.innerHTML = `
+      <div class="product-card h-100">
+        <img src="${product.image}" alt="${product.alt}" class="img-fluid">
+        <div class="card-content">
+          <h3>${product.title}</h3>
+          <p>${product.price}</p>
         </div>
-
-        <div class="product-card">
-          <img src="images/makeup.2.webp" alt="Blush">
-          <div class="card-content">
-            <h3>Lip GLose</h3>
-            <p>Rs.500</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="images/makeup.3.webp" alt="Blush">
-          <div class="card-content">
-            <h3>Press Powder</h3>
-            <p>Rs.2000</p>
-          </div>
-          <button>Add to cart</button>
-        </div>
+        <button>Add to cart</button>
       </div>
-    </section>
-  </body>
+    `;
+    row.appendChild(col);
+  });
+</script>
+
+    </div>
+  </section>
+
+  <!-- Bootstrap JS (optional for extra functionality like collapse) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
