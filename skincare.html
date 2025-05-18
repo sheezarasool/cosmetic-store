@@ -13,6 +13,7 @@
 
   <!-- Your Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/skincare.js"></script>
 </head>
 
 <body>
@@ -52,48 +53,34 @@
     </div>
   </nav>
 
-  <section class="product-section">
-    <h2>SKINCARE</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/s1.webp" alt="Lipstick">
-        <div class="card-content">
-          <h3>Vitamin E Facewash</h3>
-          <p>Rs. 999</p>
-        </div>
-        <button>Add to cart</button>
-      </div>
+  <section class="product-section container my-4">
+    <h2 class="text-center mb-4">SKINCARE</h2>
+    <div class="row" id="productRow">
+<script>
+  const row = document.getElementById("productRow");
 
-      <div class="product-card">
-        <img src="images/s2.webp" alt="Blush">
+    skincareProducts.map(product => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-3 mb-4";
+    col.innerHTML = `
+    <div class="product-card h-100">
+        <img src="${product.image}" alt="${product.alt}" class="img-fluid">
         <div class="card-content">
-          <h3>Hylaronic Acid</h3>
-          <p>Rs.4,999</p>
+          <h3>${product.title}</h3>
+          <p>${product.price}</p>
         </div>
         <button>Add to cart</button>
       </div>
-      <div class="product-card">
-        <img src="images/s3.webp" alt="Blush">
-        <div class="card-content">
-          <h3>Complexion Builder</h3>
-          <p>Rs.1,999</p>
-        </div>
-        <button>Add to cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/s4.webp" alt="Blush">
-        <div class="card-content">
-          <h3>Day Cream</h3>
-          <p>Rs.1,999/p>
-        </div>
-        <button>Add to cart</button>
-      </div>
+    `;
+    row.appendChild(col);
+  });
+</script>
 
-      <!-- Add more cards as needed -->
     </div>
   </section>
 
-
+  <!-- Bootstrap JS (optional for extra functionality like collapse) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
